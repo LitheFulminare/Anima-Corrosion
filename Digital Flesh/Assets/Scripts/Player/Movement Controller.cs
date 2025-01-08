@@ -2,35 +2,44 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller;
+    [SerializeField] private CharacterController _controller;
 
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    private Vector3 _playerVelocity;
+    private bool _groundedPlayer;
+    private float _playerSpeed = 2.0f;
+    private float _jumpHeight = 1.0f;
+    private float _gravityValue = -9.81f;
+    private Vector2 _moveDirection;
+
+    public InputActionReference move;
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        _moveDirection = move.action.ReadValue<Vector2>();
+
+        Debug.Log(_moveDirection.ToString());
+
+        _groundedPlayer = _controller.isGrounded;
+        if (_groundedPlayer && _playerVelocity.y < 0)
         {
-            playerVelocity.y = 0f;
+            _playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        // converts the Vector2 input to a Vector3 (otherwise 'W' makes the character jump)
+        Vector3 moveDirection = new Vector3(_moveDirection.x, 0, _moveDirection.y);
+        _controller.Move(moveDirection * Time.deltaTime * _playerSpeed);
 
         // Makes the player jump
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButtonDown("Jump") && _groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+            _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -2.0f * _gravityValue);
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        _playerVelocity.y += _gravityValue * Time.deltaTime;
+        _controller.Move(_playerVelocity * Time.deltaTime);
     }
 }
