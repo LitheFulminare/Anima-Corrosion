@@ -21,8 +21,6 @@ public class MovementController : MonoBehaviour
     {
         _moveDirection = move.action.ReadValue<Vector2>();
 
-        Debug.Log(_moveDirection.ToString());
-
         _groundedPlayer = _controller.isGrounded;
         if (_groundedPlayer && _playerVelocity.y < 0)
         {
