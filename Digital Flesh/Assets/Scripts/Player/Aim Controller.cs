@@ -6,22 +6,37 @@ using UnityEngine.InputSystem;
 
 public class AimController : MonoBehaviour
 {
-    [SerializeField] private InputActionReference aim;
+    [SerializeField] private InputActionReference _aim;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private Transform _defaultCameraPosition;
+    [SerializeField] private Transform _aimingCameraPosition;
 
     private bool _isAiming = false;
 
     private void OnEnable()
     {
-        aim.action.started += Aim;
+        _aim.action.started += Aim;
     }
 
     private void OnDisable()
     {
-        aim.action.started -= Aim;
+        _aim.action.started -= Aim;
     }
 
+    // changes camera position when RMB is pressed
     private void Aim(InputAction.CallbackContext context)
     {
-        Debug.Log("RMB pressed");
+        if (_isAiming)
+        {
+            _camera.transform.position = _defaultCameraPosition.position;
+            _camera.transform.rotation = _defaultCameraPosition.rotation;
+            _isAiming = false;
+        }
+        else
+        {
+            _camera.transform.position = _aimingCameraPosition.position;
+            _camera.transform.rotation = _aimingCameraPosition.rotation;
+            _isAiming = true;
+        }
     }
 }
