@@ -8,6 +8,7 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] private CharacterController _controller;
 
+    // movement speed and direction parameters
     private Vector3 _playerVelocity;
     private bool _groundedPlayer;
     private float _playerSpeed = 2.0f;
@@ -39,5 +40,18 @@ public class MovementController : MonoBehaviour
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
+    }
+
+    // slows player down when aiming
+    public void SlowOnAim(bool isAiming)
+    {
+        if (isAiming)
+        {
+            _playerSpeed = 1.0f;
+        }
+        else
+        {
+            _playerSpeed = 2.0f;
+        }
     }
 }

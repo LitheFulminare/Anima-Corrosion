@@ -12,6 +12,7 @@ public class AimController : MonoBehaviour
     [SerializeField] private Transform _aimingCameraPosition;
 
     private bool _isAiming = false;
+    private MovementController _movementController;
 
     private void OnEnable()
     {
@@ -21,6 +22,11 @@ public class AimController : MonoBehaviour
     private void OnDisable()
     {
         _aim.action.started -= Aim;
+    }
+
+    private void Start()
+    {
+        _movementController = GetComponent<MovementController>();
     }
 
     // changes camera position when RMB is pressed
@@ -37,6 +43,12 @@ public class AimController : MonoBehaviour
             _camera.transform.position = _aimingCameraPosition.position;
             _camera.transform.rotation = _aimingCameraPosition.rotation;
             _isAiming = true;
+        }
+
+        // slows player down when aiming
+        if (_movementController != null)
+        {
+            _movementController.SlowOnAim(_isAiming);
         }
     }
 }
