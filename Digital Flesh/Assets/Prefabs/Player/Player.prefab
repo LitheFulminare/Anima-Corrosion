@@ -493,3 +493,4 @@ MonoBehaviour:
   _camera: {fileID: 1407334580974325322}
   _defaultCameraPosition: {fileID: 4258661370271867836}
   _aimingCameraPosition: {fileID: 6410054754115604}
+  _characterSprite: {fileID: 8526818162812383456}
