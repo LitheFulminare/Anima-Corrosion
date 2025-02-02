@@ -275,8 +275,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7836028043076696317}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17000008, y: 0.13, z: -0.48000002}
+  m_LocalRotation: {x: 0.055774294, y: 0, z: 0, w: 0.9984434}
+  m_LocalPosition: {x: 0, y: 0.2355, z: -0.4036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -490,7 +490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aim: {fileID: 1327096659633975070, guid: 0db95ca2ca453034080cc132bb088210, type: 3}
-  _camera: {fileID: 1407334580974325322}
   _defaultCameraPosition: {fileID: 4258661370271867836}
   _aimingCameraPosition: {fileID: 6410054754115604}
   _characterSprite: {fileID: 8526818162812383456}
