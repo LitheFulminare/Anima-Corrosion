@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AimController : MonoBehaviour
+public class AimManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference _aim;    
     [SerializeField] private Transform _defaultCameraPosition;
@@ -13,7 +13,7 @@ public class AimController : MonoBehaviour
 
     private bool _isAiming = false;
     private Camera _camera;
-    private MovementController _movementController;
+    private MovementManager _movementController;
 
     private void OnEnable()
     {
@@ -28,7 +28,7 @@ public class AimController : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        _movementController = GetComponent<MovementController>();
+        _movementController = GetComponent<MovementManager>();
     }
 
     private void Update()

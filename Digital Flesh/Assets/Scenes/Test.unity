@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &249093894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9105763001141244981, guid: b2eefe872f8e8d94bbc46cb28986fc64,
+    type: 3}
+  m_PrefabInstance: {fileID: 6580671262881964914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &249093900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249093894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc66ae9383736f2428d8b646917c3283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attack: {fileID: 2809060023703114807, guid: 0db95ca2ca453034080cc132bb088210, type: 3}
 --- !u!1 &738784011
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 3
-  m_UsePipelineSettings: 1
+  m_UsePipelineSettings: 0
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
   m_RenderingLayers: 1
@@ -186,9 +205,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0
+    m_NormalBias: 3.06
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -566,7 +585,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9105763001141244981, guid: b2eefe872f8e8d94bbc46cb28986fc64,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 249093900}
   m_SourcePrefab: {fileID: 100100000, guid: b2eefe872f8e8d94bbc46cb28986fc64, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

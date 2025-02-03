@@ -6,16 +6,7 @@
             "id": "a477909b-7d0a-43b6-b9b8-56fd289b5ba5",
             "actions": [
                 {
-                    "name": "Melee",
-                    "type": "Button",
-                    "id": "84628ecb-0d28-4b9d-b806-95f88f057937",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Shoot",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "33dee2d9-2f9b-4365-8bb5-f014ed9e34fe",
                     "expectedControlType": "Button",
@@ -43,17 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "c9f7878d-9a48-457b-bd97-27558f849c47",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "8c4377ea-fcea-4974-970e-525a06aa847e",
@@ -116,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

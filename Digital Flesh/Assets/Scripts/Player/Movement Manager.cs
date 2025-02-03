@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementController : MonoBehaviour
+public class MovementManager : MonoBehaviour
 {
     [SerializeField] private CharacterController _controller;
 
