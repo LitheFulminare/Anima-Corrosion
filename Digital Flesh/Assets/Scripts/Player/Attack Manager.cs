@@ -32,7 +32,37 @@ public class AttackManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             Vector3 attackDirection = raycastHit.point - transform.position;
-            Debug.Log(attackDirection);
+
+            GetAttackDirection(attackDirection);
+
+            //Debug.Log(attackDirection);
+        }
+    }
+
+    // gets the click position and determines the actual direction (forward, backward, right, left)
+    private void GetAttackDirection(Vector3 attackPosition)
+    {
+        if (Mathf.Abs(attackPosition.z) > Mathf.Abs(attackPosition.x))
+        {
+            if (attackPosition.z > 0)
+            {
+                Debug.Log("attacked forwards");
+            }
+            else
+            {
+                Debug.Log("attacked backwards");
+            }
+        }
+        else
+        {
+            if (attackPosition.x > 0)
+            {
+                Debug.Log("attacked to the right");
+            }
+            else
+            {
+                Debug.Log("attacked to the left");
+            }
         }
     }
 }
