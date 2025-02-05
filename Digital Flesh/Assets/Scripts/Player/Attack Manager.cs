@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class AttackManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference _attack;
+    [SerializeField] private Transform _swordPivotTransform;
 
     private Camera _camera;
 
@@ -42,26 +43,35 @@ public class AttackManager : MonoBehaviour
     // gets the click position and determines the actual direction (forward, backward, right, left)
     private void GetAttackDirection(Vector3 attackPosition)
     {
+        //attackPosition.y = 0f;
+        //_swordPivotTransform.rotation = Quaternion.LookRotation(attackPosition);
+
+        _swordPivotTransform.rotation = Quaternion.identity;
+
         if (Mathf.Abs(attackPosition.z) > Mathf.Abs(attackPosition.x))
         {
+            // attack forward
             if (attackPosition.z > 0)
             {
-                Debug.Log("attacked forwards");
+                _swordPivotTransform.Rotate(0f, 0f, 0f);
             }
+            //attack backwards
             else
             {
-                Debug.Log("attacked backwards");
+                _swordPivotTransform.Rotate(0f, 180f, 0f);
             }
         }
         else
         {
+            // attack to the right
             if (attackPosition.x > 0)
             {
-                Debug.Log("attacked to the right");
+                _swordPivotTransform.Rotate(0f, 90f, 0f);
             }
+            // attack to the left
             else
             {
-                Debug.Log("attacked to the left");
+                _swordPivotTransform.Rotate(0f, 270f, 0f);
             }
         }
     }
